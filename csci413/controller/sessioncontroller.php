@@ -4,11 +4,6 @@ if (!isset($_SESSION)) {
 }
   require('../init.php');
   
-  function log_in() {
-  	$id = add_session();
-  	$_SESSION['id'] = $id;
-  	echo $id;
-  }
   	  
   
   function update_session() {
