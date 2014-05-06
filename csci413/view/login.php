@@ -17,7 +17,9 @@ session_regenerate_id(true);
 		 	/*Ensure something is input into email and password*/
 			if(!isset($_POST['usermail']) or !isset($_POST['password']))
 				throw new Exception('Please input username and password');
+			log_in($_POST['usermail'], $_POST['password']);
 			echo 'Login successful';
+			header("Location: www.google.com");
 	 	}
 	 	catch(Exception $e) {
 		 	echo '<p class="error">'.$e->getMessage().'</p>';

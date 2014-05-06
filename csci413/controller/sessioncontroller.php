@@ -2,7 +2,7 @@
 require('../init.php');
 $db_conn = db_connect();
   
-function log_in() {
+function log_in($email, $passhash) {
 	global $db_conn;
 	$statement = $db_conn->prepare("SELECT * FROM user WHERE email=? AND password=?");
 	$passhash = hash('sha512', $email.$passhash);
@@ -11,6 +11,7 @@ function log_in() {
 		if(strcmp($statement->errorInfo()[0], '23000')== 0)
 			throw new Exception('Email and password incorrect');
 		$error_msg = $statement->errorInfo();
+		echo $error_msg;
 		throw new Exception('Error logging in '.'Error Code '.$error_msg[0]);
 		}
 	}
