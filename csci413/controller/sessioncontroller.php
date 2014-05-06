@@ -1,8 +1,6 @@
 <?php
   
   	  
-  
-  function update_session() {
   	session_regenerate_id();
   	
   	$session_last_update = get_session_last_update();
